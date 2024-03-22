@@ -7,10 +7,10 @@ def handle_client_request(service_client_socket, ip_port):
         recv_data = service_client_socket.recv(1024)
         if recv_data:
             recv_content = recv_data.decode('utf-8')
-            print(f'Received {recv_content},form {ip_port}')
+            print('Received {},form {}'.format(recv_content, ip_port))
             service_client_socket.send('Successfully received'.encode('utf-8'))
         else:
-            print('Connection closed')
+            print('Connection to {} was closed'.format(ip_port))
             break
     service_client_socket.close()
 
